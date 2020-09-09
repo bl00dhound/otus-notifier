@@ -1,0 +1,51 @@
+{
+  "name": "otus-notifier",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bl00dhound/otus-notifier.git"
+  },
+  "author": "oleksii.kuznietsov@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bl00dhound/otus-notifier/issues"
+  },
+  "homepage": "https://github.com/bl00dhound/otus-notifier#readme",
+  "lint-staged": {
+    "**/*.ts": [
+      "eslint --fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "evque": "0.0.7",
+    "forever": "^3.0.2",
+    "knex": "^0.21.5",
+    "nodemon": "^2.0.4",
+    "pg": "^8.3.3",
+    "pino": "^6.6.0",
+    "pino-pretty": "^4.2.1"
+  },
+  "devDependencies": {
+    "@types/knex": "^0.16.1",
+    "@types/pino": "^6.3.0",
+    "@typescript-eslint/eslint-plugin": "^4.1.0",
+    "eslint": "^7.8.1",
+    "eslint-config-airbnb-typescript": "^10.0.0",
+    "eslint-plugin-import": "^2.22.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.3.0",
+    "typescript": "^4.0.2"
+  }
+}
