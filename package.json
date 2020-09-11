@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build && LOG_LEVEL=debug forever start ./forever.json && tail -f ./logs/out.log",
+    "start:dev": "LOG_LEVEL=debug nodemon -x 'tsc -p . && node -r dotenv/config svc/index.js | pino-pretty' -L -w src -w config -e ts,js,json",
     "build": "tsc -p ."
   },
   "repository": {

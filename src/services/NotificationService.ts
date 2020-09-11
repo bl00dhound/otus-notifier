@@ -16,7 +16,7 @@ export default class NotificationService {
       logger.info(result, '[createUser]: ');
       return true;
     } catch (err) {
-      logger.err({
+      logger.error({
         message: err.message,
         stack: err.stack,
       }, '[CreateUser notification error]: ');
@@ -28,13 +28,13 @@ export default class NotificationService {
     try {
       const result = await NotificationDAO.createNotification({
         event,
-        user_id: orderData.userId,
-        message: `Order #${orderData.orderId} successfully created.`,
+        user_id: orderData.user_id,
+        message: `Order #${orderData.id} was placed.`,
       });
       logger.info(result, '[createOrder]: ');
       return true;
     } catch (err) {
-      logger.err({
+      logger.error({
         message: err.message,
         stack: err.stack,
       }, '[CreateOrder notification error]: ');
@@ -46,13 +46,13 @@ export default class NotificationService {
     try {
       const result = await NotificationDAO.createNotification({
         event,
-        user_id: msg.userId,
-        message: `Balance of user #${msg.userId} was successfully updates: ${msg.balance}`,
+        user_id: msg.user_id,
+        message: `Balance of user #${msg.user_id} was successfully updated: ${msg.balance}`,
       });
       logger.info(result, '[billingSuccess]: ');
       return true;
     } catch (err) {
-      logger.err({
+      logger.error({
         message: err.message,
         stack: err.stack,
       }, '[BillingSuccess notification error]: ');
@@ -64,13 +64,13 @@ export default class NotificationService {
     try {
       const result = await NotificationDAO.createNotification({
         event,
-        user_id: msg.userId,
-        message: `Change balance of user #${msg.userId} was failed. Changes weren't applied.`,
+        user_id: msg.user_id,
+        message: `Change balance of user #${msg.user_id} was failed. Changes weren't applied.`,
       });
       logger.info(result, '[billingFailed]: ');
       return true;
     } catch (err) {
-      logger.err({
+      logger.error({
         message: err.message,
         stack: err.stack,
       }, '[BillingFailed notification error]: ');
